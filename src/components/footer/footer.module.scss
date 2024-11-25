@@ -1,6 +1,11 @@
 .containerPage {
-	height: 10vh;
+	height: 3.5vh;
 	width: 100vw;
 	background-color: rgba(255, 255, 255, 0.174);
 	z-index: 100;
+	display: flex;
+	align-items: center;
+	color: #ffff;
+	font-size: 3vh;
+	justify-content: space-between;
 }
