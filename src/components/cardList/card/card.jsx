@@ -1,6 +1,7 @@
 import styles from './card.module.scss'
-export const Card = cardProp => {
+export const Card = (cardProp, add) => {
 	const cardImg = cardProp.img
+	console.log(add) //заглушка
 	return (
 		<>
 			<div className={styles.contCardItem}>
