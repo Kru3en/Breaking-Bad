@@ -1,10 +1,10 @@
 import styles from './App.module.scss'
-import { Card } from './components/cardList/card/card'
+import { CardList } from './components/cardList/cardList.jsx'
 function App() {
 	return (
 		<>
 			<div className={styles.page}>
-				<Card />
+				<CardList />
 			</div>
 		</>
 	)

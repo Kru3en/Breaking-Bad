@@ -1,9 +1,14 @@
-import styles from './cardList.module'
+import { cards } from '../../other/cards'
 import { Card } from './card/card'
-export const cardList = () => {
+import styles from './cardList.module.scss'
+export const CardList = () => {
 	return (
 		<>
-			<div className={styles.contCardList}></div>
+			<div className={styles.contCardList}>
+				{cards.map(cardItem => (
+					<Card key={cardItem.id} {...cardItem} />
+				))}
+			</div>
 		</>
 	)
 }

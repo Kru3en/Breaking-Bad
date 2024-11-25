@@ -1,17 +1,16 @@
-import { cards } from '../../../other/cards'
 import styles from './card.module.scss'
-export const Card = () => {
-	const cardImg = cards[0].img
+export const Card = cardProp => {
+	const cardImg = cardProp.img
 	return (
 		<>
 			<div className={styles.contCardItem}>
 				<img src={cardImg} alt='img' className={styles.imgCard} />
 				<div className={styles.contTopText}>
-					<p className={styles.name}>{cards[0].name}</p>
-					<p className={styles.birthday}>{cards[0].birthday}</p>
+					<p className={styles.name}>{cardProp.name}</p>
+					<p className={styles.birthday}>{cardProp.birthday}</p>
 				</div>
 				<div className={styles.contStatus}>
-					<p className={styles.textStatus}>{cards[0].status}</p>
+					<p className={styles.textStatus}>{cardProp.status}</p>
 				</div>
 			</div>
 		</>
