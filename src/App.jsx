@@ -14,7 +14,7 @@ function App() {
 					<Routes>
 						<Route path='/' element={<MainPages />} />
 						<Route path='/cardListPage' element={<CardListPage />} />
-						<Route path='/personage' element={<Personage />} />
+						<Route path='/personage/:name' element={<Personage />} />
 					</Routes>
 				</div>
 				<Footer />

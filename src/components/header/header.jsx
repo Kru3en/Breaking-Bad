@@ -18,7 +18,7 @@ export const Header = () => {
 					</li>
 					<li className={styles.navItem}>
 						<NavLink
-							to='/card-list'
+							to='/cardListPage'
 							className={({ isActive }) =>
 								isActive ? styles.activeLink : styles.navLink
 							}
@@ -28,7 +28,7 @@ export const Header = () => {
 					</li>
 					<li className={styles.navItem}>
 						<NavLink
-							to='/personage'
+							to='/Personage'
 							className={({ isActive }) =>
 								isActive ? styles.activeLink : styles.navLink
 							}

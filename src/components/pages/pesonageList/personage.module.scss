@@ -1,0 +1,34 @@
+.containerPage {
+	width: 100vw;
+	height: 80vh;
+	position: relative;
+	z-index: 10;
+	.personageCard {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		height: 100%;
+		.personageImg {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100vw;
+			height: 80vh;
+			z-index: 1;
+		}
+		.personageName,
+		.personageQuote {
+			background-color: black;
+			display: inline-block;
+			font-size: 4vh;
+			position: relative;
+			z-index: 10;
+			color: plum;
+			padding: 0.2em 0.5em;
+			border-radius: 4px;
+		}
+		.personageName {
+			font-size: 5vh;
+		}
+	}
+}
