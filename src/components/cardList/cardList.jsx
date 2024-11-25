@@ -1,21 +1,31 @@
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addPerson } from '../../store/actions/person'
+import { fetchPersons } from '../../store/actions/person.js'
+import { addPerson } from '../../store/reducers/persons.js'
 import { Card } from './card/card'
 import styles from './cardList.module.scss'
+
 export const CardList = () => {
 	const dispatch = useDispatch()
 	const persons = useSelector(state => state.persons)
+
 	const add = (name, birthday, img, status) => {
-		dispatch(addPerson(name, birthday, img, status))
+		dispatch(addPerson({ name, birthday, img, status }))
 	}
-	console.log(persons)
+
+	useEffect(() => {
+		dispatch(fetchPersons())
+	}, [dispatch])
+
+	if (!persons || persons.length === 0) {
+		return <div className={styles.loading}>Loading...</div>
+	}
+
 	return (
-		<>
-			<div className={styles.contCardList}>
-				{persons.map(cardItem => (
-					<Card key={cardItem.id} {...cardItem} add={add} />
-				))}
-			</div>
-		</>
+		<div className={styles.contCardList}>
+			{persons.map(cardItem => (
+				<Card key={cardItem.id} {...cardItem} add={add} />
+			))}
+		</div>
 	)
 }
