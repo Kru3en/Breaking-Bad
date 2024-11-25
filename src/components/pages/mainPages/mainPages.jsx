@@ -1,4 +1,5 @@
 import backImg from '../../../assets/mainBackground.png'
+import backImgWebp from '../../../assets/mainBackground.webp';
 import styles from './mainPages.module.scss'
 import { text } from './text'
 export const MainPages = () => {
@@ -11,7 +12,16 @@ export const MainPages = () => {
 			<div className={styles.textTopCont}>
 				<p className={styles.textTop}>{text.header}</p>
 			</div>
-			<img src={backImg} alt='' className={styles.backgroundImg} />
+			<picture>
+				<source srcSet={backImgWebp} type="image/webp" />
+				<source srcSet={backImg} type="image/png" />
+				<img 
+					src={backImg} 
+					alt="Фон страницы" 
+					className={styles.backgroundImg} 
+					loading="lazy" 
+				/>
+			</picture>
 		</div>
 	)
 }

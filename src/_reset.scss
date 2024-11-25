@@ -1,4 +1,17 @@
 //Шрифт сюда засунул если чё
+html {
+  scrollbar-width: none; /* Для Firefox */
+}
+
+body {
+  overflow-y: scroll; /* Сохраняет прокрутку, если контент длинный */
+  -ms-overflow-style: none; /* Для Internet Explorer и Edge */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Для Chrome, Safari и Opera */
+}
+
 html,
 body,
 div,
