@@ -1,0 +1,38 @@
+.containerPage {
+	width: 100%;
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	justify-content: space-between;
+	.textTopCont {
+		z-index: 1;
+		width: 100%;
+
+		.textTop {
+			background-color: rgb(34, 34, 34);
+			font-size: 2.8vh;
+			background-color: rgb(255, 255, 255);
+			font-weight: bold;
+		}
+	}
+	.textLittle {
+		width: 12%;
+		border-radius: 50px;
+		z-index: 1;
+		background-color: rgb(34, 34, 34);
+		font-size: 3vh;
+		background-color: rgb(255, 255, 255);
+		font-weight: bold;
+		margin-top: 8vh;
+		margin-right: 5.5vw;
+		text-align: center;
+	}
+	.backgroundImg {
+		position: absolute;
+		top: 10%;
+		left: 0%;
+		width: 100vw;
+		height: 90vh;
+	}
+}
