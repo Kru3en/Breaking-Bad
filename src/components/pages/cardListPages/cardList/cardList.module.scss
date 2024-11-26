@@ -21,20 +21,33 @@
 		color: white;
 		gap: 45px;
 	}
-	.itemsPerPage {
+	.option {
 		display: flex;
-		align-items: center;
-		gap: 25px;
-		margin-bottom: 10px;
-		select {
-			border: none;
-			background-color: #d3198e;
-			border-radius: 15px;
-			padding: 5px;
-			font-size: 14px;
+		justify-content: space-around;
+		.searchContainer {
+			display: flex;
+			align-items: center;
+			gap: 35px;
+			.searchContainer {
+				color: white;
+			}
+		}
+		.itemsPerPage {
+			display: flex;
+			align-items: center;
+			gap: 25px;
+			margin-bottom: 10px;
+			color: white;
+
+			select {
+				border: none;
+				background-color: #d3198e;
+				border-radius: 15px;
+				padding: 5px;
+				font-size: 14px;
+			}
 		}
 	}
-
 	.loadMore {
 		display: flex;
 		justify-content: center;

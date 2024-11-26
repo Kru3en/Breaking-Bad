@@ -11,6 +11,7 @@ export const CardList = () => {
 	const [isCardView, setIsCardView] = useState(true)
 	const [currentPage, setCurrentPage] = useState(1)
 	const [itemsPerPage, setItemsPerPage] = useState(10)
+	const [searchTerm, setSearchTerm] = useState('')
 
 	useEffect(() => {
 		dispatch(fetchPersons())
@@ -19,6 +20,18 @@ export const CardList = () => {
 	if (!persons || persons.length === 0) {
 		return <div className={styles.loading}>Loading...</div>
 	}
+
+	const handleSearchChange = e => {
+		setSearchTerm(e.target.value)
+		setCurrentPage(1)
+	}
+
+	const filteredPersons = persons.filter(person =>
+		person.name.toLowerCase().includes(searchTerm.toLowerCase())
+	)
+
+	const indexOfLastItem = currentPage * itemsPerPage
+	const currentItems = filteredPersons.slice(0, indexOfLastItem)
 
 	const handleToggle = () => {
 		setIsCardView(!isCardView)
@@ -35,9 +48,6 @@ export const CardList = () => {
 		setCurrentPage(1)
 	}
 
-	const indexOfLastItem = currentPage * itemsPerPage
-	const currentItems = persons.slice(0, indexOfLastItem)
-
 	return (
 		<div className={styles.wrapPages}>
 			<div className={styles.toggleContainer}>
@@ -47,19 +57,34 @@ export const CardList = () => {
 				</label>
 			</div>
 
-			<div className={styles.itemsPerPage}>
-				<label htmlFor='itemsPerPage'>Количество отображения: </label>
-				<select
-					id='itemsPerPage'
-					value={itemsPerPage}
-					onChange={handleItemsPerPageChange}
-				>
-					<option value={10}>10</option>
-					<option value={15}>15</option>
-					<option value={20}>20</option>
-					<option value={25}>25</option>
-					<option value={30}>30</option>
-				</select>
+			<div className={styles.option}>
+				<div className={styles.itemsPerPage}>
+					<label htmlFor='itemsPerPage'>Количество отображения: </label>
+					<select
+						id='itemsPerPage'
+						value={itemsPerPage}
+						onChange={handleItemsPerPageChange}
+					>
+						<option value={10}>10</option>
+						<option value={15}>15</option>
+						<option value={20}>20</option>
+						<option value={25}>25</option>
+						<option value={30}>30</option>
+					</select>
+				</div>
+				<div className={styles.searchContainer}>
+					<label htmlFor='search' className={styles.textSearchContainer}>
+						Поиск по имени:
+					</label>
+					<input
+						id='search'
+						type='text'
+						value={searchTerm}
+						onChange={handleSearchChange}
+						placeholder='Введите имя персонажа'
+						className={styles.searchInput}
+					/>
+				</div>
 			</div>
 
 			<div className={isCardView ? styles.contCardList : styles.contList}>
@@ -71,8 +96,8 @@ export const CardList = () => {
 							<ListItem key={`${listItem.name}-${index}`} {...listItem} />
 					  ))}
 			</div>
-			
-			{indexOfLastItem < persons.length && (
+
+			{indexOfLastItem < filteredPersons.length && (
 				<div className={styles.loadMore}>
 					<button onClick={handleLoadMore}>Load More</button>
 				</div>
