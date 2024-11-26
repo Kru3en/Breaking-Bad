@@ -1,15 +1,10 @@
 //Шрифт сюда засунул если чё
-html {
-  scrollbar-width: none; /* Для Firefox */
-}
 
 body {
-  overflow-y: scroll; /* Сохраняет прокрутку, если контент длинный */
-  -ms-overflow-style: none; /* Для Internet Explorer и Edge */
 }
 
 body::-webkit-scrollbar {
-  display: none; /* Для Chrome, Safari и Opera */
+	display: none; /* Для Chrome, Safari и Opera */
 }
 
 html,
@@ -71,6 +66,9 @@ video {
 	-webkit-font-smoothing: antialiased;
 	text-size-adjust: none;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	scrollbar-width: none;
+	overflow-y: scroll; /* Сохраняет прокрутку, если контент длинный */
+	-ms-overflow-style: none; /* Для Internet Explorer и Edge */
 }
 
 footer,

@@ -1,0 +1,9 @@
+.listItem {
+	display: flex;
+
+	.info {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 45px;
+	}
+}
