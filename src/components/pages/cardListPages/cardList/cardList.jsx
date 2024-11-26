@@ -1,6 +1,11 @@
+// CardList.jsx
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPersons } from '../../../../store/actions/person.js'
+import { ItemsPerPageSelector } from '../../../elements/ItemsPerPageSelector/ItemsPerPageSelector'
+import { LoadMoreButton } from '../../../elements/LoadMoreButton/LoadMoreButton'
+import { SearchBar } from '../../../elements/SearchBar/SearchBar'
+import { ToggleSwitch } from '../../../elements/ToggleSwitch/ToggleSwitch'
 import { Card } from './card/card.jsx'
 import styles from './cardList.module.scss'
 import { ListItem } from './listItem/listItem.jsx'
@@ -40,7 +45,6 @@ export const CardList = () => {
 
 	const handleLoadMore = () => {
 		setCurrentPage(prevPage => prevPage + 1)
-		console.log(`Current Page: ${currentPage + 1}`)
 	}
 
 	const handleItemsPerPageChange = e => {
@@ -50,41 +54,16 @@ export const CardList = () => {
 
 	return (
 		<div className={styles.wrapPages}>
-			<div className={styles.toggleContainer}>
-				<label className={styles.switch}>
-					<input type='checkbox' checked={isCardView} onChange={handleToggle} />
-					<span className={styles.slider}></span>
-				</label>
-			</div>
-
 			<div className={styles.option}>
-				<div className={styles.itemsPerPage}>
-					<label htmlFor='itemsPerPage'>Количество отображения: </label>
-					<select
-						id='itemsPerPage'
-						value={itemsPerPage}
-						onChange={handleItemsPerPageChange}
-					>
-						<option value={10}>10</option>
-						<option value={15}>15</option>
-						<option value={20}>20</option>
-						<option value={25}>25</option>
-						<option value={30}>30</option>
-					</select>
-				</div>
-				<div className={styles.searchContainer}>
-					<label htmlFor='search' className={styles.textSearchContainer}>
-						Поиск по имени:
-					</label>
-					<input
-						id='search'
-						type='text'
-						value={searchTerm}
-						onChange={handleSearchChange}
-						placeholder='Введите имя персонажа'
-						className={styles.searchInput}
-					/>
-				</div>
+				<ItemsPerPageSelector
+					itemsPerPage={itemsPerPage}
+					onItemsPerPageChange={handleItemsPerPageChange}
+				/>
+				<ToggleSwitch isCardView={isCardView} onToggle={handleToggle} />
+				<SearchBar
+					searchTerm={searchTerm}
+					onSearchChange={handleSearchChange}
+				/>
 			</div>
 
 			<div className={isCardView ? styles.contCardList : styles.contList}>
@@ -103,9 +82,7 @@ export const CardList = () => {
 
 			{filteredPersons.length > 0 &&
 				indexOfLastItem < filteredPersons.length && (
-					<div className={styles.loadMore}>
-						<button onClick={handleLoadMore}>Load More</button>
-					</div>
+					<LoadMoreButton onLoadMore={handleLoadMore} />
 				)}
 		</div>
 	)

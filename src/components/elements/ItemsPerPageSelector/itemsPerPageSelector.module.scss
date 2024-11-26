@@ -1,0 +1,15 @@
+.itemsPerPage {
+	display: flex;
+	align-items: center;
+	gap: 25px;
+	margin-bottom: 10px;
+	color: white;
+
+	select {
+		border: none;
+		background-color: #d3198e;
+		border-radius: 15px;
+		padding: 5px;
+		font-size: 14px;
+	}
+}
