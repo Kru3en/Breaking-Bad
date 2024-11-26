@@ -4,7 +4,9 @@
 	min-height: 100%;
 	z-index: 1001;
 	margin-top: 5px;
+
 	.contCardList {
+		padding: 25px 0px;
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
@@ -19,6 +21,41 @@
 		color: white;
 		gap: 45px;
 	}
+	.itemsPerPage {
+		display: flex;
+		align-items: center;
+		gap: 25px;
+		margin-bottom: 10px;
+		select {
+			border: none;
+			background-color: #d3198e;
+			border-radius: 15px;
+			padding: 5px;
+			font-size: 14px;
+		}
+	}
+
+	.loadMore {
+		display: flex;
+		justify-content: center;
+		margin: 20px 0;
+
+		button {
+			padding: 10px 20px;
+			font-size: 16px;
+			background-color: #f321a6;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: 0.3s;
+
+			&:hover {
+				background-color: #d3198e;
+			}
+		}
+	}
+
 	.toggleContainer {
 		display: flex;
 		justify-content: center;
