@@ -21,6 +21,9 @@
 		color: white;
 		gap: 45px;
 	}
+	.emptyMessage {
+		color: white;
+	}
 	.option {
 		display: flex;
 		justify-content: space-around;
@@ -28,9 +31,7 @@
 			display: flex;
 			align-items: center;
 			gap: 35px;
-			.searchContainer {
-				color: white;
-			}
+			color: white;
 		}
 		.itemsPerPage {
 			display: flex;

@@ -88,20 +88,25 @@ export const CardList = () => {
 			</div>
 
 			<div className={isCardView ? styles.contCardList : styles.contList}>
-				{isCardView
-					? currentItems.map((cardItem, index) => (
-							<Card key={`${cardItem.name}-${index}`} {...cardItem} />
-					  ))
-					: currentItems.map((listItem, index) => (
-							<ListItem key={`${listItem.name}-${index}`} {...listItem} />
-					  ))}
+				{filteredPersons.length === 0 ? (
+					<div className={styles.emptyMessage}>Список карточек пуст</div>
+				) : isCardView ? (
+					currentItems.map((cardItem, index) => (
+						<Card key={`${cardItem.name}-${index}`} {...cardItem} />
+					))
+				) : (
+					currentItems.map((listItem, index) => (
+						<ListItem key={`${listItem.name}-${index}`} {...listItem} />
+					))
+				)}
 			</div>
 
-			{indexOfLastItem < filteredPersons.length && (
-				<div className={styles.loadMore}>
-					<button onClick={handleLoadMore}>Load More</button>
-				</div>
-			)}
+			{filteredPersons.length > 0 &&
+				indexOfLastItem < filteredPersons.length && (
+					<div className={styles.loadMore}>
+						<button onClick={handleLoadMore}>Load More</button>
+					</div>
+				)}
 		</div>
 	)
 }
